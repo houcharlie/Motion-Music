@@ -15,7 +15,6 @@ import java.awt.Color;
 
 import javax.swing.UIManager;
 
-
 public class Music {
 
 	private JFrame frame;
@@ -61,40 +60,40 @@ public class Music {
 		textField.setBounds(27, 79, 181, 52);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
-		
+
 		textField_1 = new JTextField();
 		textField_1.setBounds(236, 79, 181, 52);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
-		
+
 		btnStart = new JButton("Start");
 		btnStart.addMouseListener(new MouseAdapter() {
 			@Override
-			
 			public void mouseClicked(MouseEvent e) {
-				
-				try
-				{
-					AudioPlayer song = new AudioPlayer(textField.getText(), Double.parseDouble(textField_1.getText()));
+
+				try {
+					AudioPlayer song = new AudioPlayer(textField.getText(),
+							Double.parseDouble(textField_1.getText()));
 					song.play();
-					
-				}
-				catch(Exception error){
-					JOptionPane.showMessageDialog(null, "Either bpm or filename is not valid.");
+
+				} catch (Exception error) {
+					JOptionPane.showMessageDialog(null,
+							"Either bpm or filename is not valid.");
 				}
 			}
 		});
 		btnStart.setBounds(164, 194, 116, 25);
 		frame.getContentPane().add(btnStart);
-		
+
 		JTextPane txtpnFileName = new JTextPane();
 		txtpnFileName.setBackground(UIManager.getColor("Button.background"));
 		txtpnFileName.setText("File name");
 		txtpnFileName.setBounds(78, 52, 89, 21);
 		frame.getContentPane().add(txtpnFileName);
-		
+
 		txtpnBeatsPerMinute = new JTextPane();
-		txtpnBeatsPerMinute.setBackground(UIManager.getColor("Button.background"));
+		txtpnBeatsPerMinute.setBackground(UIManager
+				.getColor("Button.background"));
 		txtpnBeatsPerMinute.setText("Beats per minute");
 		txtpnBeatsPerMinute.setBounds(268, 52, 126, 21);
 		frame.getContentPane().add(txtpnBeatsPerMinute);
